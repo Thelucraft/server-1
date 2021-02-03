@@ -1,4 +1,4 @@
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
+input.onButtonPressed(Button.A, function () {
     basic.showString("Bitte Warten")
     basic.showString("Dateien werden Exportiert ")
     basic.showLeds(`
@@ -20,7 +20,7 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
     basic.showString("Ihre Daten wurden auf Server 1 Übertragen")
     basic.clearScreen()
 })
-input.onGesture(Gesture.Shake, function on_gesture_shake() {
+input.onGesture(Gesture.Shake, function () {
     basic.showString("Keine Verbindung mit dem Server möglich")
     basic.showLeds(`
         # . . . #
@@ -30,12 +30,21 @@ input.onGesture(Gesture.Shake, function on_gesture_shake() {
         # . . . #
         `)
 })
-input.onButtonPressed(Button.B, function on_button_pressed_b() {
+input.onButtonPressed(Button.AB, function () {
+    music.playMelody("C5 G C5 C C5 G C5 C ", 246)
+    music.playMelody("C5 G C5 C C5 G C5 C ", 246)
+    music.playMelody("G B C5 A B G A F ", 310)
+    music.playMelody("G B C5 A B G A F ", 310)
+    music.playMelody("A G C5 G C G E C5 ", 225)
+    music.playMelody("A G C5 G C G E C5 ", 225)
+    music.playMelody("C - - - - - - - ", 273)
+})
+input.onButtonPressed(Button.B, function () {
     basic.showString("Lade datei ...")
     basic.pause(100)
     music.playMelody("C C5 C C5 G C5 C C5 ", 170)
 })
-input.onPinPressed(TouchPin.P1, function on_pin_pressed_p1() {
+input.onPinPressed(TouchPin.P1, function () {
     basic.showString("Aktualisierung ...")
     basic.showLeds(`
         . . # . .
@@ -58,7 +67,7 @@ basic.showLeds(`
     . # # # .
     `)
 radio.sendValue("Proxi", 0)
-basic.forever(function on_forever() {
+basic.forever(function () {
     basic.showLeds(`
         . . # . #
         . # # . #
@@ -68,7 +77,7 @@ basic.forever(function on_forever() {
         `)
     basic.showString("Neue entwicklung finden sie bald in Server 2")
 })
-basic.forever(function on_forever2() {
+basic.forever(function () {
     basic.showString("Sie sind noch mit Server ")
     basic.showNumber(1)
     basic.pause(100)
